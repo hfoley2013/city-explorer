@@ -1,4 +1,10 @@
 import React from 'react';
+import Header from './Header.js';
+import Footer from './Footer.js';
+import Location from './Location.js';
+import Map from './Map.js';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import './App.css';
 
@@ -44,22 +50,25 @@ class App extends React.Component {
 
 render() {
 
-  let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.lat},${this.state.lon}&zoom=${this.state.zoom}&markers=icon:small-red-cutout|${this.state.lat},${this.state.lon}`
-
   return (
   <>
-    <h1>City Explorer API</h1>
-    <form onSubmit={this.handleSubmit}>
-      <label>
-        Pick a City
-        <input type="text" onChange={this.handleCityInput}/>
-      </label>
-      <button type="submit">Explore!</button>
-    </form>
-    <h2>{this.state.display_name}</h2>
-    <h3>Latitude: {this.state.lat}</h3>
-    <h3>Longitude: {this.state.lon}</h3>
-    <img src={mapURL} alt={this.state.display_name} title={this.state.display_name}/>
+    <Header/>
+    <Form onSubmit={this.handleSubmit}>
+      <Form.Label htmlFor="cityInput">
+        <Form.Control id="cityInput" placeholder="Enter City" size="sm" onChange={this.handleCityInput}/>
+      </Form.Label>
+      <Button type="submit" variant="primary">Explore!</Button>
+    </Form>
+    <Location
+      display_name={this.state.display_name}
+      latitude={this.state.lat}
+      longitude={this.state.lon}/>
+    <Map
+      city_name={this.state.display_name}
+      lat={this.state.lat}
+      lon={this.state.lon}
+      zoom={this.state.zoom}/>
+    <Footer/>
   </>
   );
 }
