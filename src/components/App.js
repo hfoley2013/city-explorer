@@ -17,28 +17,38 @@ class App extends React.Component {
       display_name: '',
       lat: '',
       log: '',
-      zoom: 12
+      zoom: 12,
+      isError: false,
+      errorMessage: ''
     }
   }
 
   handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(`search: ${this.state.searchCity}`);
-    
-    // API data
-    let key = process.env.REACT_APP_LOCATIONIQ_API_KEY;
-    let location = `https://us1.locationiq.com/v1/search?key=${key}&q=${this.state.searchCity}&format=json`;
-    
-    let locationData = await axios.get(location);
+    try {
+      e.preventDefault();
+      console.log(`search: ${this.state.searchCity}`);
+      
+      // API data
+      let key = process.env.REACT_APP_LOCATIONIQ_API_KEY;
+      let location = `https://us1.locationiq.com/v1/search?key=${key}&q=${this.state.searchCity}&format=json`;
+      
+      let locationData = await axios.get(location);
 
-    //save data to state
-    console.log('location data:', locationData.data[0]);
-    this.setState({
-      apiData: locationData.data[0], //remove apiData once required data is determined
-      display_name: locationData.data[0].display_name,
-      lat: locationData.data[0].lat,
-      lon: locationData.data[0].lon
-    });
+      //save data to state
+      console.log('location data:', locationData.data[0]);
+      this.setState({
+        apiData: locationData.data[0], //remove apiData once required data is determined
+        display_name: locationData.data[0].display_name,
+        lat: locationData.data[0].lat,
+        lon: locationData.data[0].lon,
+        isError: false
+      });
+    } catch (error) {
+      this.setState({
+        errorMessage: error.message,
+        isError: true
+      });
+    }
   }
 
   handleCityInput = (e) => {
@@ -60,6 +70,8 @@ render() {
       <Button type="submit" variant="primary">Explore!</Button>
     </Form>
     <Location
+      isError={this.state.isError}
+      errorMessage={this.state.errorMessage}
       display_name={this.state.display_name}
       latitude={this.state.lat}
       longitude={this.state.lon}/>

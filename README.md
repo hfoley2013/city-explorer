@@ -51,16 +51,16 @@ This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 * **Name of feature:** [Map](https://trello.com/c/5ZucIQKb/8-3-map-as-a-user-i-want-to-see-a-map-of-the-city-so-that-i-can-see-the-layout-of-the-area-i-want-to-explore)
 * **Estimate of time needed to complete:** 3 hours
 * **Start time:** 11/14/2022 2:30pm PDT
-* **Finish time:**
-* **Actual time needed to complete:**
+* **Finish time:** 11/14/2022 6:00pm
+* **Actual time needed to complete:** 3:30
 
 ### Feature 3: Error Handling
 
 * **Name of feature:** [Error Handling](https://trello.com/c/XPZeO8jb/1-4-errors-as-a-user-i-want-clear-messages-if-something-goes-wrong-so-i-know-if-i-need-to-make-any-changes-or-try-again-in-a-diffe)
-* **Estimate of time needed to complete**
-* **Start time:**
-* **Finish time:**
-* **Actual time needed to complete:**
+* **Estimate of time needed to complete:** 1 hours
+* **Start time:** 11/14/2022 9:30pm
+* **Finish time:** 11/14/2022 9:56pm
+* **Actual time needed to complete:** :26
 
 <!-- Template
 **Name of feature:**
