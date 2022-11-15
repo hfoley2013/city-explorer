@@ -4,33 +4,67 @@
 **Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+The purpose of this application is to allow the user to input a city and view it on a map. The application returns the formal name of the selected area, as well as the location's latitude and longitude and displays them on a newly rendered map.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+This application is fully functional once forked from the repo. The only changes that need to be made are the following:
+
+1. Request a token for API access at [LocationIQ](https://locationiq.com/docs#search-forward-geocoding)
+2. Once you have an API key, you will need to add a `.env` file on the same level as the `.gitignore` file
+3. Copy the contents from `.env.sample` and paste into your newly created `.esv` file
+4. Replace `<your-api-key-here>` with your actual API key
+5. Run the following in the command line to install `npm` and launch your `localhost` to view the site
+
+  ```js
+  npm install
+  npm run build
+  npm start
+  ```
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+* 11-14-2022 3:49pm PDT - Application now has ability to search for a location and render the area name, latitude, longitude, and a map with location icon.
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+* Credit to Gordon Reilley and Tracy Oakley for the WRRC collaboration
+  ![WRCC](./img/WRRC.png)
 
 ## Time Estimates
 
-**Name of feature:**
-**Estimate of time needed to complete**
-**Start time:**
-**Finish time:**
-**Actual time needed to complete:**
+### Feature 1: Locations
+
+* **Name of feature:** [Locations](https://trello.com/c/NMSkUiMy/7-2-locations-as-a-user-of-city-explorer-i-want-to-enter-the-name-of-a-location-so-that-i-can-see-the-exact-latitude-and-longitude)
+* **Estimate of time needed to complete:** 1 hour
+* **Start time:** 11/14/2022 1:30pm PDT
+* **Finish time:** 11/14/2022 2:30pm PDT
+* **Actual time needed to complete:** 1:00
+
+### Feature 2: Map
+
+* **Name of feature:** [Map](https://trello.com/c/5ZucIQKb/8-3-map-as-a-user-i-want-to-see-a-map-of-the-city-so-that-i-can-see-the-layout-of-the-area-i-want-to-explore)
+* **Estimate of time needed to complete:** 3 hours
+* **Start time:** 11/14/2022 2:30pm PDT
+* **Finish time:**
+* **Actual time needed to complete:**
+
+### Feature 3: Error Handling
+
+* **Name of feature:** [Error Handling](https://trello.com/c/XPZeO8jb/1-4-errors-as-a-user-i-want-clear-messages-if-something-goes-wrong-so-i-know-if-i-need-to-make-any-changes-or-try-again-in-a-diffe)
+* **Estimate of time needed to complete**
+* **Start time:**
+* **Finish time:**
+* **Actual time needed to complete:**
 
 <!-- Template
 **Name of feature:**
-**Estimate of time needed to complete**
+**Estimate of time needed to complete:**
 **Start time:**
 **Finish time:**
 **Actual time needed to complete:** -->
