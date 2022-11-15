@@ -1,0 +1,90 @@
+import React from 'react';
+import Header from './Header.js';
+import Footer from './Footer.js';
+import Location from './Location.js';
+import Map from './Map.js';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import './App.css';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      apiData: '',
+      searchCity: '',
+      display_name: '',
+      lat: '',
+      log: '',
+      zoom: 12,
+      isError: false,
+      errorMessage: ''
+    }
+  }
+
+  handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      console.log(`search: ${this.state.searchCity}`);
+      
+      // API data
+      let key = process.env.REACT_APP_LOCATIONIQ_API_KEY;
+      let location = `https://us1.locationiq.com/v1/search?key=${key}&q=${this.state.searchCity}&format=json`;
+      
+      let locationData = await axios.get(location);
+
+      //save data to state
+      console.log('location data:', locationData.data[0]);
+      this.setState({
+        apiData: locationData.data[0], //remove apiData once required data is determined
+        display_name: locationData.data[0].display_name,
+        lat: locationData.data[0].lat,
+        lon: locationData.data[0].lon,
+        isError: false
+      });
+    } catch (error) {
+      this.setState({
+        errorMessage: error.message,
+        isError: true
+      });
+    }
+  }
+
+  handleCityInput = (e) => {
+    console.log(this.state.searchCity);
+    this.setState ({
+      searchCity: e.target.value
+    });
+  }
+
+render() {
+
+  return (
+  <>
+    <Header/>
+    <Form onSubmit={this.handleSubmit}>
+      <Form.Label htmlFor="cityInput">
+        <Form.Control id="cityInput" placeholder="Enter City" size="sm" onChange={this.handleCityInput}/>
+      </Form.Label>
+      <Button type="submit" variant="primary">Explore!</Button>
+    </Form>
+    <Location
+      isError={this.state.isError}
+      errorMessage={this.state.errorMessage}
+      display_name={this.state.display_name}
+      latitude={this.state.lat}
+      longitude={this.state.lon}/>
+    <Map
+      city_name={this.state.display_name}
+      lat={this.state.lat}
+      lon={this.state.lon}
+      zoom={this.state.zoom}/>
+    <Footer/>
+  </>
+  );
+}
+
+}
+
+export default App;
