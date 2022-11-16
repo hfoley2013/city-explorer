@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Location from './Location.js';
+import Weather from './Weather.js';
 import Map from './Map.js';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -16,11 +17,25 @@ class App extends React.Component {
       searchCity: '',
       display_name: '',
       lat: '',
-      log: '',
+      lon: '',
       zoom: 12,
       isError: false,
-      errorMessage: ''
+      errorMessage: '',
+      weatherData: '',
+      isModalShown: false
     }
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      isModalShown: false
+    });
+  }
+
+  handleOpenModal = () => {
+    this.setState({
+      isModalShown: true
+    });
   }
 
   handleSubmit = async (e) => {
@@ -37,7 +52,7 @@ class App extends React.Component {
       //save data to state
       console.log('location data:', locationData.data[0]);
       this.setState({
-        apiData: locationData.data[0], //remove apiData once required data is determined
+        apiData: locationData.data[0],
         display_name: locationData.data[0].display_name,
         lat: locationData.data[0].lat,
         lon: locationData.data[0].lon,
@@ -51,12 +66,30 @@ class App extends React.Component {
     }
   }
 
+  handleWeather = async (e) => {
+    try{  
+      e.preventDefault();
+      let weatherURL = `${process.env.REACT_APP_SERVER}weather&lat=${this.state.lat}&lon=${this.state.lon}`;
+      
+      let weatherData = await axios.get(weatherURL);
+      this.setState({
+        weatherData: weatherData
+      });
+    } catch(error) {
+      this.setState({
+        errorMessage: error.message,
+        isError: true
+      });
+    };
+  };
+
+
   handleCityInput = (e) => {
     console.log(this.state.searchCity);
     this.setState ({
       searchCity: e.target.value
     });
-  }
+  };
 
 render() {
 
@@ -75,6 +108,14 @@ render() {
       display_name={this.state.display_name}
       latitude={this.state.lat}
       longitude={this.state.lon}/>
+    <Weather
+      handleWeather={this.handleWeather}
+      show={this.handleOpenModal}
+      onHide={this.handleCloseModal}
+      lat={this.state.lat}
+      lon={this.state.lon}
+      city={this.state.searchCity}
+      weather={this.props.weatherData}/>
     <Map
       city_name={this.state.display_name}
       lat={this.state.lat}
@@ -83,8 +124,7 @@ render() {
     <Footer/>
   </>
   );
-}
-
-}
+};
+};
 
 export default App;
