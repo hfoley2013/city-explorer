@@ -21,21 +21,8 @@ class App extends React.Component {
       zoom: 12,
       isError: false,
       errorMessage: '',
-      weatherData: '',
-      isModalShown: false
+      weatherData: ''
     }
-  }
-
-  handleCloseModal = () => {
-    this.setState({
-      isModalShown: false
-    });
-  }
-
-  handleOpenModal = () => {
-    this.setState({
-      isModalShown: true
-    });
   }
 
   handleSubmit = async (e) => {
@@ -57,7 +44,8 @@ class App extends React.Component {
         lat: locationData.data[0].lat,
         lon: locationData.data[0].lon,
         isError: false
-      });
+      },this.handleWeather);
+
     } catch (error) {
       this.setState({
         errorMessage: error.message,
@@ -66,14 +54,14 @@ class App extends React.Component {
     }
   }
 
-  handleWeather = async (e) => {
+  handleWeather = async () => {
     try{  
-      e.preventDefault();
-      let weatherURL = `${process.env.REACT_APP_SERVER}weather&lat=${this.state.lat}&lon=${this.state.lon}`;
+      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.lat}&lon=${this.state.lon}`;
       
       let weatherData = await axios.get(weatherURL);
+      console.log(weatherData);
       this.setState({
-        weatherData: weatherData
+        weatherData: weatherData.data
       });
     } catch(error) {
       this.setState({
@@ -108,14 +96,8 @@ render() {
       display_name={this.state.display_name}
       latitude={this.state.lat}
       longitude={this.state.lon}/>
-    <Weather
-      handleWeather={this.handleWeather}
-      show={this.handleOpenModal}
-      onHide={this.handleCloseModal}
-      lat={this.state.lat}
-      lon={this.state.lon}
-      city={this.state.searchCity}
-      weather={this.props.weatherData}/>
+    { this.state.weatherData && <Weather
+      weather={this.state.weatherData}/>}
     <Map
       city_name={this.state.display_name}
       lat={this.state.lat}
