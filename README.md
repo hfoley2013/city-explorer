@@ -30,6 +30,7 @@ This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 ## Change Log
 
 * 11-14-2022 3:49pm PDT - Application now has ability to search for a location and render the area name, latitude, longitude, and a map with location icon.
+* 11-16-2022 9:41pm PDT - Application deployed to Netlify and Render
 
 ## Credit and Collaborations
 
