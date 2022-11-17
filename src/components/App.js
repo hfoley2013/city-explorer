@@ -119,17 +119,17 @@ render() {
       display_name={this.state.display_name}
       latitude={this.state.lat}
       longitude={this.state.lon}/>
+    <Map
+      city_name={this.state.display_name}
+      lat={this.state.lat}
+      lon={this.state.lon}
+      zoom={this.state.zoom}/>
     { this.state.weatherData && <Weather
       weather={this.state.weatherData}
       city={this.state.searchCity}/>}
       {this.state.movieData && <Movie 
       movies={this.state.movieData}
       city={this.state.searchCity}/>}
-    <Map
-      city_name={this.state.display_name}
-      lat={this.state.lat}
-      lon={this.state.lon}
-      zoom={this.state.zoom}/>
     <Footer/>
   </>
   );

@@ -1,0 +1,15 @@
+* {
+  border: 1px solid red;
+  margin: -1;
+}
+
+
+.card-img-left {
+  width: 20%;
+}
+
+#movieRecommendations div {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
