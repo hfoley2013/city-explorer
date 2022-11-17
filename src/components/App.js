@@ -3,6 +3,7 @@ import Header from './Header.js';
 import Footer from './Footer.js';
 import Location from './Location.js';
 import Weather from './Weather.js';
+import Movie from './Movie.js';
 import Map from './Map.js';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -21,7 +22,8 @@ class App extends React.Component {
       zoom: 12,
       isError: false,
       errorMessage: '',
-      weatherData: ''
+      weatherData: '',
+      movieData: ''
     }
   }
 
@@ -44,7 +46,7 @@ class App extends React.Component {
         lat: locationData.data[0].lat,
         lon: locationData.data[0].lon,
         isError: false
-      },this.handleWeather);
+      },this.handleAPI);
 
     } catch (error) {
       this.setState({
@@ -71,6 +73,27 @@ class App extends React.Component {
     };
   };
 
+  handleAPI = () => {
+    this.handleWeather();
+    this.handleMovie();
+  };
+
+  handleMovie = async () => {
+    try{  
+      let movieURL = `${process.env.REACT_APP_SERVER}/movie?search=${this.state.searchCity}`;
+      
+      let movieData = await axios.get(movieURL);
+      console.log(movieData);
+      this.setState({
+        movieData: movieData.data
+      });
+    } catch(error) {
+      this.setState({
+        errorMessage: error.message,
+        isError: true
+      });
+    };
+  };
 
   handleCityInput = (e) => {
     console.log(this.state.searchCity);
@@ -97,7 +120,11 @@ render() {
       latitude={this.state.lat}
       longitude={this.state.lon}/>
     { this.state.weatherData && <Weather
-      weather={this.state.weatherData}/>}
+      weather={this.state.weatherData}
+      city={this.state.searchCity}/>}
+      {this.state.movieData && <Movie 
+      movies={this.state.movieData}
+      city={this.state.searchCity}/>}
     <Map
       city_name={this.state.display_name}
       lat={this.state.lat}
