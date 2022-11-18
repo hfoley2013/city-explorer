@@ -1,11 +1,13 @@
 # City Explorer
 
 **Author**: Harper Foley
-**Version**: 1.0.2
+**Version**: 2.0.0
 
 ## Overview
 
-The purpose of this application is to allow the user to input a city and view it on a map. The application returns the formal name of the selected area, as well as the location's latitude and longitude and displays them on a newly rendered map.
+The purpose of this application is to allow the user to input a city and view it on a map. The application returns the formal name of the selected area, as well as the location's latitude and longitude and displays them on a newly rendered map. <br>
+
+Additionally, the application will return a three day forecast for the selected city and a list of movies associated with the area.
 
 ## Getting Started
 
@@ -77,10 +79,16 @@ This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 * **Actual time needed to complete:** 10 hours
 
 * **Name of feature:** [Deployment of Live Server](https://trello.com/c/Z0kZDrZM/19-3-publish-deploy-your-server-as-a-user-i-want-to-access-the-city-explorer-application-on-the-web-so-that-anyone-can-explore-from)
-* **Estimate of time needed to complete:** 1 hours
+* **Estimate of time needed to complete:** 1 hour
 * **Start time:** 11-16-2022 5:00pm PDT
 * **Finish time:** 11-17-2022 4:45pm PDT
 * **Actual time needed to complete:** 6 hours
+
+* **Name of feature:** [Caching](https://trello.com/c/aXIbMTEq/17-1-performance-as-a-user-i-want-the-application-to-work-with-recent-results-so-that-i-can-see-info-without-the-app-doing-unnecess)
+* **Estimate of time needed to complete:** 1 hour
+* **Start time:** 11-17-2022 2:00pm PDT
+* **Finish time:** 11-17-2022 3:10pm PDT
+* **Actual time needed to complete:** 1:10
 
 <!-- Template
 * **Name of feature:**
