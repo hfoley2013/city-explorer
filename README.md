@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Harper Foley
-**Version**: 1.0.0
+**Version**: 1.0.2
 
 ## Overview
 
@@ -30,7 +30,8 @@ This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 ## Change Log
 
 * 11-14-2022 3:49pm PDT - Application now has ability to search for a location and render the area name, latitude, longitude, and a map with location icon.
-* 11-16-2022 9:41pm PDT - Application deployed to Netlify and Render
+* 11-16-2022 9:41pm PDT - Application deployed to Netlify and Render.
+* 11-17-2022 8:38pm PDT - Adds WeatherDay and Movies components to handle rendering of individual instances of weather and movies.
 
 ## Credit and Collaborations
 
@@ -59,13 +60,31 @@ This application uses JavaScript, React, Bootstrap, HTML5, and CSS3 languages.
 
 * **Name of feature:** [Error Handling](https://trello.com/c/XPZeO8jb/1-4-errors-as-a-user-i-want-clear-messages-if-something-goes-wrong-so-i-know-if-i-need-to-make-any-changes-or-try-again-in-a-diffe)
 * **Estimate of time needed to complete:** 1 hours
-* **Start time:** 11/14/2022 9:30pm
-* **Finish time:** 11/14/2022 9:56pm
+* **Start time:** 11/14/2022 9:30pm PDT
+* **Finish time:** 11/14/2022 9:56pm PDT
 * **Actual time needed to complete:** :26
 
+* **Name of feature:** [Live Weather](https://trello.com/c/66TupnMD/12-1-weather-live-as-a-user-of-city-explorer-i-want-to-see-weather-info-for-the-city-i-searched-so-that-i-know-how-to-pack-for-an-u)
+* **Estimate of time needed to complete:** 2 hours
+* **Start time:** 11-16-2022 1:30pm
+* **Finish time:** 11-17-2022 2:00pm
+* **Actual time needed to complete:** 8 hours
+
+* **Name of feature:** [Top Movies](https://trello.com/c/9ATbIeI0/13-2-movies-as-a-user-of-city-explorer-i-want-to-see-info-about-movies-related-to-the-city-i-searched-so-that-i-can-learn-more-abou)
+* **Estimate of time needed to complete:** 3 hours
+* **Start time:** 11-16-2022 4:00pm PDT
+* **Finish time:** 11-17-2022 2:30pm PDT
+* **Actual time needed to complete:** 10 hours
+
+* **Name of feature:** [Deployment of Live Server](https://trello.com/c/Z0kZDrZM/19-3-publish-deploy-your-server-as-a-user-i-want-to-access-the-city-explorer-application-on-the-web-so-that-anyone-can-explore-from)
+* **Estimate of time needed to complete:** 1 hours
+* **Start time:** 11-16-2022 5:00pm PDT
+* **Finish time:** 11-17-2022 4:45pm PDT
+* **Actual time needed to complete:** 6 hours
+
 <!-- Template
-**Name of feature:**
-**Estimate of time needed to complete:**
-**Start time:**
-**Finish time:**
-**Actual time needed to complete:** -->
+* **Name of feature:**
+* **Estimate of time needed to complete:**
+* **Start time:**
+* **Finish time:**
+* **Actual time needed to complete:** -->
