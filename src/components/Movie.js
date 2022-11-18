@@ -13,8 +13,8 @@ class Movie extends React.Component {
             <div id='movieRecommendations'>
               {this.props.movies.map((movie, idx) => (
                 <Card key={idx}>
-                  <Card.Img variant="left" id={movie.title} alt={movie.title} src={movie.imgPath}/>
-                  <Card.Text>
+                  <Card.Img variant="top" id={movie.title} alt={movie.title} src={movie.imgPath}/>
+                  <Card.Body>
                     <div id="title">
                       <Card.Title>{movie.title}</Card.Title>
                     </div>
@@ -34,7 +34,7 @@ class Movie extends React.Component {
                       <h5>Release Date:</h5>
                       <p>{movie.releaseDate}</p>
                     </div>
-                  </Card.Text>
+                  </Card.Body>
                 </Card>
                 ))
               }

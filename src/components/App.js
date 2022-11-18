@@ -103,7 +103,7 @@ class App extends React.Component {
   };
 
 render() {
-
+  console.log(this.state.weatherData);
   return (
   <>
     <Header/>

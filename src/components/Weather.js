@@ -1,22 +1,20 @@
 import React from 'react';
-import Accordion from 'react-bootstrap/Accordion';
+import WeatherDay from './WeatherDay.js';
 
 class Weather extends React.Component {
 
   render() {
-
     return(
       <div id="weatherForecast">
         <section>
           <h3>3 Day Forecast for {this.props.city}</h3>
             <div id='weather'>
               {this.props.weather.map((day, idx) => (
-                <Accordion defaultActiveKey={['0']} alwaysOpen>
-                  <Accordion.Item eventKey={idx}>
-                    <Accordion.Header>{day.date}</Accordion.Header>
-                    <Accordion.Body>{day.fullDescription}</Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
+              <WeatherDay
+                date={day.date}
+                fullDescription={day.fullDescription}
+                idx={idx}
+                key={idx}/>
                 ))
               }
             </div>
